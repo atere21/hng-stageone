@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import profile from '../assets/profile.jpg';
-import { Link } from 'react-router-dom';
+import "../components/ProfileInfo.css" // Import the CSS file
 
 const ProfileInfo = () => {
   // Get the current day of the week
@@ -21,39 +21,38 @@ const ProfileInfo = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="bg-gray-100 p-4 justify-center grid mx-auto items-center rounded-lg shadow-md w-full">
-        <h2 className="text-2xl font-semibold mb-4 text-pink-400 text-center">Profile Information</h2>
-        
+    <div className="profile-container">
+      <div className="profile-card">
+        <h2 className="profile-title"data-testid="slackUserName">Oluwatosin Atere</h2>
+         
         {/* Profile Picture */}
-        <div className="mb-4 rounded-full justify-center items-center mx-auto">
+        <div className="profile-picture" data-testid="slackDisplayImage">
           <img
             src={profile}
-            alt="Profile"
-            className="w-28 h-28 rounded-full mx-auto"
+            alt="Oluwatosin Atere"
+            className="profile-image"
             data-testid="profilePicture"
           />
-          <span data-testid="profile"></span>
         </div>
-        
+
         {/* Current Day of the Week */}
-        <p className="text-lg mb-2 text-center p-2">
+        <p className="profile-info"data-testid="currentDayOfTheWeek">
           <strong>Current Day of the Week:</strong> <span data-testid="currentDayOfTheWeek">{currentDay}</span>
         </p>
 
         {/* Current UTC Time in Milliseconds */}
-        <p className="text-lg text-center p-2">
+        <p className="profile-info" data-testid="currentUTCTime">
           <strong>Current UTC Time (Milliseconds):</strong> <span data-testid="currentUTCTime">{currentUTCTime}</span>
         </p>
 
-        <p className="text-lg mb-2 text-center p-2">
+        <p className="profile-info" data-testid="myTrack">
           <strong>Track:</strong> <span>Frontend Development</span>
         </p>
-        
+
         {/* Routing to GitHub */}
-        <div className="flex justify-center py-4">
+        <div className="profile-link">
           <a href="https://github.com/atere21" target="_blank" rel="noopener noreferrer">
-            <button className="bg-pink-400 text-white p-2 rounded-md cursor-pointer hover:bg-pink-500">
+            <button className="github-button" data-testid="githubURL">
               My Github Repository <span data-testid="githubURL"></span>
             </button>
           </a>
